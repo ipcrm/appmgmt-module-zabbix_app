@@ -6,7 +6,13 @@ define zabbix_app::db (
   $database_password,
 )
 {
-  class { 'mysql::server': }
+  class { 'mysql::server':
+        override_options => {
+            'mysqld'       => {
+            'bind_address' => $::ipaddress,
+        },
+  }
+
   class { 'zabbix::database':
     zabbix_server     => $zabbix_server,
     zabbix_web        => $zabbix_web,
