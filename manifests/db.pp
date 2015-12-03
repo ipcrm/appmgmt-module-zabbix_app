@@ -15,12 +15,10 @@ define zabbix_app::db (
     database_user     => $database_user,
     database_password => $database_password,
   }
-
-  Zabbix_app::Db produces Zabbixdb {
-    zabbix_db_host => $::fqdn,
-    zabbix_db_user => $database_user,
-    zabbix_db_pass => $database_password,
-    zabbix_db_name => $database_name,
-  }
-
+}
+Zabbix_app::Db produces Zabbixdb {
+  zabbix_db_host => $::fqdn,
+  zabbix_db_user => $database_user,
+  zabbix_db_pass => $database_password,
+  zabbix_db_name => $database_name,
 }

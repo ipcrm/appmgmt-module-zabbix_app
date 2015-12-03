@@ -19,10 +19,10 @@ define zabbix_app::web (
     database_pass => $zabbix_db_pass,
   }
 
-  Zabbix_app::Web consumes ZabbixDb {
-    zabbix_db_host => $zabbix_db_host,
-    zabbix_db_user => $zabbix_db_user,
-    zabbix_db_pass => $zabbix_db_pass,
-    zabbix_db_name => $zabbix_db_name,
-  }
+}
+Zabbix_app::Web consumes ZabbixDb {
+  zabbix_db_host => $zabbix_db_host,
+  zabbix_db_user => $zabbix_db_user,
+  zabbix_db_pass => $zabbix_db_pass,
+  zabbix_db_name => $zabbix_db_name,
 }
