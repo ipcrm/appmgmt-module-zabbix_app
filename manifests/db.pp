@@ -9,7 +9,7 @@ define zabbix_app::db (
   class { 'mysql::server':
         override_options => {
           'mysqld' => {
-              'bind_address' => $::ipaddress,
+              'bind_address' => '0.0.0.0',
             },
         }
   }
