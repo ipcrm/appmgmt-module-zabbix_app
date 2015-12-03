@@ -14,5 +14,10 @@ define zabbix_app::server (
     database_password => $zabbix_db_pass,
   }
 
-  Zabbix_app::Server consumes ZabbixDb {}
+  Zabbix_app::Server consumes ZabbixDb {
+    zabbix_db_host => $zabbix_db_host,
+    zabbix_db_user => $zabbix_db_user,
+    zabbix_db_pass => $zabbix_db_pass,
+    zabbix_db_name => $zabbix_db_name,
+  }
 }
