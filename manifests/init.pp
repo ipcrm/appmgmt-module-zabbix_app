@@ -19,8 +19,8 @@ application zabbix_app(
   }
 
   zabbix_app::web {
-    $zabbix_server,
-    consume => ZabbixDb["zbx-${name}"]
+    zabbix_server => $zabbix_server,
+    consume       => ZabbixDb["zbx-${name}"]
   }
 
 }
