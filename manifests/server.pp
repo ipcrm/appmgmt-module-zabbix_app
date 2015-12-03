@@ -15,9 +15,4 @@ define zabbix_app::server (
   }
 
 }
-Zabbix_app::Server consumes ZabbixDb {
-  zabbix_db_host => $zabbix_db_host,
-  zabbix_db_user => $zabbix_db_user,
-  zabbix_db_pass => $zabbix_db_pass,
-  zabbix_db_name => $zabbix_db_name,
-}
+Zabbix_app::Server consumes ZabbixDb
