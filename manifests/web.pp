@@ -20,4 +20,4 @@ define zabbix_app::web (
   }
 
 }
-Zabbix_app::Web consumes ZabbixDb
+Zabbix_app::Web consumes Zabbixdb {}

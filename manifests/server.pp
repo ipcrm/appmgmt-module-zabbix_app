@@ -15,4 +15,4 @@ define zabbix_app::server (
   }
 
 }
-Zabbix_app::Server consumes ZabbixDb
+Zabbix_app::Server consumes Zabbixdb {}
