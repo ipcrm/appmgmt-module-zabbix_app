@@ -1,13 +1,13 @@
 application zabbix_app(
-  $zabbix_server,
-  $zabbix_web,
+  $zabbix_server_fqdn,
+  $zabbix_web_fqdn,
   $database_name,
   $database_user,
   $database_password,
 ){
   zabbix_app::db{ $name:
-    zabbix_server     => $zabbix_server,
-    zabbix_web        => $zabbix_web,
+    zabbix_server     => $zabbix_server_fqdn,
+    zabbix_web        => $zabbix_web_fqdn,
     database_name     => $database_name,
     database_user     => $database_user,
     database_password => $database_password,
@@ -15,12 +15,16 @@ application zabbix_app(
   }
 
   zabbix_app::server { $name:
-    consume => Zabbixdb["zbx-${name}"]
+    consume => Zabbixdb["zbx-${name}"],
+    export  => Zabbixsrv["zbxsrv-${name}"]
   }
 
   zabbix_app::web { $name:
     zabbix_server => $zabbix_server,
-    consume       => Zabbixdb["zbx-${name}"]
+    consume       => [
+      Zabbixdb["zbx-${name}"],
+      Zabbixsrv["zbxsrv-${name}"],
+      ]
   }
 
 }

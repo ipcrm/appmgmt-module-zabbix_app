@@ -4,8 +4,11 @@ define zabbix_app::db (
   $database_name,
   $database_user,
   $database_password,
+  $database_host = $::fqdn,
+  $database_port = '3306',
 )
 {
+
   class { 'mysql::server':
         override_options => {
           'mysqld' => {
@@ -24,8 +27,9 @@ define zabbix_app::db (
   }
 }
 Zabbix_app::Db produces Zabbixdb {
-  zabbix_db_host => $::fqdn,
-  zabbix_db_user => $database_user,
-  zabbix_db_pass => $database_password,
-  zabbix_db_name => $database_name,
+  host => $::fqdn,
+  port => $database_port,
+  user => $database_user,
+  pass => $database_password,
+  name => $database_name,
 }
