@@ -15,7 +15,7 @@ define zabbix_app::server (
     database_name     => $zabbix_db_name,
     database_user     => $zabbix_db_user,
     database_password => $zabbix_db_pass,
-    listen_port       => $zabbix_server_port,
+    listenport        => $zabbix_server_port,
   }
 
 }
