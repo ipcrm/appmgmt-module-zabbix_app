@@ -25,13 +25,13 @@ define zabbix_app::web (
 
 }
 Zabbix_app::Web consumes Zabbixsrv {
-  host => $zabbix_server,
-  port => $zabbix_server_port,
+  zabbix_server      => $host,
+  zabbix_server_port => $port,
 }
 Zabbix_app::Web consumes Zabbixdb {
-  host   => $zabbix_db_host,
-  port   => $zabbix_db_port,
-  user   => $zabbix_db_user,
-  pass   => $zabbix_db_pass,
-  dbname => $zabbix_db_name,
+  zabbix_db_host => $host,
+  zabbix_db_port => $port,
+  zabbix_db_user => $user,
+  zabbix_db_pass => $pass,
+  zabbix_db_name => $dbname
 }

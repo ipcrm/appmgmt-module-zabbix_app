@@ -24,10 +24,9 @@ Zabbix_app::Server produces Zabbixsrv {
   port => $database_port,
 }
 Zabbix_app::Server consumes Zabbixdb {
-  host     => $zabbix_db_host,
-  port     => $zabbix_db_port,
-  user     => $zabbix_db_user,
-  pass     => $zabbix_db_pass,
-  dbname   => $zabbix_db_name,
-  provider => 'tcp',
+  zabbix_db_host => $host,
+  zabbix_db_port => $port,
+  zabbix_db_user => $user,
+  zabbix_db_pass => $pass,
+  zabbix_db_name => $dbname
 }
