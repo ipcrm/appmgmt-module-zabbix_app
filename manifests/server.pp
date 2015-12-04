@@ -21,7 +21,7 @@ define zabbix_app::server (
 }
 Zabbix_app::Server produces Zabbixsrv {
   host => $::fqdn,
-  port => $database_port,
+  port => $zabbix_server_port,
 }
 Zabbix_app::Server consumes Zabbixdb {
   zabbix_db_host => $host,
