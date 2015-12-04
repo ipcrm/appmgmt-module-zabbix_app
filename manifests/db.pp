@@ -27,9 +27,10 @@ define zabbix_app::db (
   }
 }
 Zabbix_app::Db produces Zabbixdb {
-  host   => $::fqdn,
-  port   => $database_port,
-  user   => $database_user,
-  pass   => $database_password,
-  dbname => $database_name,
+  host    => $::fqdn,
+  port    => $database_port,
+  user    => $database_user,
+  pass    => $database_password,
+  dbname  => $database_name,
+  provder => 'tcp',
 }
