@@ -6,12 +6,12 @@ application zabbix_app(
   $database_password,
 ){
   zabbix_app::db{ $name:
-    zabbix_server     => $zabbix_server_fqdn,
-    zabbix_web        => $zabbix_web_fqdn,
-    database_name     => $database_name,
-    database_user     => $database_user,
-    database_password => $database_password,
-    export            => Zabbixdb["zbx-${name}"]
+    zabbix_server_fqdn => $zabbix_server_fqdn,
+    zabbix_web_fqdn    => $zabbix_web_fqdn,
+    database_name      => $database_name,
+    database_user      => $database_user,
+    database_password  => $database_password,
+    export             => Zabbixdb["zbx-${name}"]
   }
 
   zabbix_app::server { $name:
