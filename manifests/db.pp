@@ -1,6 +1,6 @@
 define zabbix_app::db (
-  $zabbix_server,
-  $zabbix_web,
+  $zabbix_server_fqdn,
+  $zabbix_web_fqdn,
   $database_name,
   $database_user,
   $database_password,
@@ -18,8 +18,8 @@ define zabbix_app::db (
   }
 
   class { 'zabbix::database':
-    zabbix_server     => $zabbix_server,
-    zabbix_web        => $zabbix_web,
+    zabbix_server     => $zabbix_server_fqdn,
+    zabbix_web        => $zabbix_web_fqdn,
     database_type     => 'mysql',
     database_name     => $database_name,
     database_user     => $database_user,
