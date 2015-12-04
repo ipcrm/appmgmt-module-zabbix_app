@@ -4,5 +4,5 @@ Puppet::Type.newtype :zabbixdb, :is_capability => true do
   newparam :port
   newparam :user
   newparam :pass
-  newparam :name
+  newparam :dbname
 end

@@ -29,9 +29,9 @@ Zabbix_app::Web consumes Zabbixsrv {
   port => $zabbix_server_port,
 }
 Zabbix_app::Web consumes Zabbixdb {
-  host => $zabbix_db_host,
-  port => $zabbix_db_port,
-  user => $zabbix_db_name,
-  pass => $zabbix_db_user,
-  name => $zabbix_db_pass,
+  host   => $zabbix_db_host,
+  port   => $zabbix_db_port,
+  user   => $zabbix_db_user,
+  pass   => $zabbix_db_pass,
+  dbname => $zabbix_db_name,
 }
