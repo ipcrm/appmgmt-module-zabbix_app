@@ -20,15 +20,14 @@ application zabbix_app(
   }
 
   zabbix_app::web { $name:
-    zabbix_server => $zabbix_server,
     consume       => [
-      Zabbixdb["zbx-${name}"],
-      Zabbixsrv["zbxsrv-${name}"],
+        Zabbixdb["zbx-${name}"],
+        Zabbixsrv["zbxsrv-${name}"],
       ]
   }
 
   zabbix_app::agent { $name:
-    consume => Zabixsrv["zbxsrv-${name}"]
+    consume => Zabbixsrv["zbxsrv-${name}"],
   }
 
 }
