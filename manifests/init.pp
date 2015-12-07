@@ -27,4 +27,8 @@ application zabbix_app(
       ]
   }
 
+  zabbix_app::agent { $name:
+    consume => Zabixsrv["zbxsrv-${name}"]
+  }
+
 }
