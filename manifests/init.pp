@@ -1,5 +1,4 @@
 application zabbix_app(
-  $node_count = 1,
   $zabbix_server_fqdn,
   $zabbix_web_fqdn,
   $database_name,
@@ -25,12 +24,6 @@ application zabbix_app(
         Zabbixdb["zbx-${name}"],
         Zabbixsrv["zbxsrv-${name}"],
       ]
-  }
-
-  $node_count.map |$i| {
-    zabbix_app::agent { "${name}-${i}":
-      consume => Zabbixsrv["zbxsrv-${name}"],
-    }
   }
 
 }
