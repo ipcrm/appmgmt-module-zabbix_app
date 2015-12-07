@@ -27,7 +27,7 @@ application zabbix_app(
       ]
   }
 
-  $node_count.map |$i|
+  $node_count.map |$i| {
     zabbix_app::agent { "${name}-${i}":
       consume => Zabbixsrv["zbxsrv-${name}"],
     }
