@@ -23,6 +23,13 @@ define zabbix_app::web (
     database_password => $zabbix_db_pass,
   }
 
+
+  firewall { '80 allow apache access':
+    dport  => [80],
+    proto  => tcp,
+    action => accept,
+  }
+
 }
 Zabbix_app::Web consumes Zabbixsrv {
   zabbix_server      => $host,

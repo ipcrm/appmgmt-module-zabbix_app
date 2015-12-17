@@ -25,6 +25,12 @@ define zabbix_app::db (
     database_user     => $database_user,
     database_password => $database_password,
   }
+
+  firewall { '3306 allow mysql':
+    dport  => [3306],
+    proto  => tcp,
+    action => accept,
+  }
 }
 Zabbix_app::Db produces Zabbixdb {
   host    => $::fqdn,
